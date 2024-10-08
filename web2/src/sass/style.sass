@@ -1,0 +1,218 @@
+@charset "UTF-8"
+
+$color: #FF8303
+$background_1: #1b1a17
+$background_2: #1F1E1B
+$border: 2px solid $color
+
+*
+    margin: 0
+    padding: 0
+    outline: none
+    border: none
+
+h1
+    color: #F0E3CA
+    font-family: "Roboto", sans-serif
+
+p
+    color: #F0E3CA
+    font-family: "Roboto", sans-serif
+
+button
+    color: $color
+    cursor: pointer
+    background-color: $background_1
+    display: flex
+    align-items: center
+    justify-content: center
+    background: none
+    border: $border
+    border-radius: 8px
+
+html
+    width: 100vw
+    min-height: 100vh
+
+body
+    background-color: $background_1
+    overflow-x: hidden
+
+.modal 
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: rgba(0, 0, 0, 0.5)
+    z-index: 10
+
+.wrapper 
+    width: 100vw
+    min-height: 100vh
+
+.wrapper-body 
+    width: 35%
+    min-height: 100vh
+    margin: 0 auto
+    
+.header
+    width: 100%
+    height: 12.5vh
+    padding-top: 2rem
+
+    .header-body
+        width: 100%
+        height: 100%
+        display: flex
+
+    .header-inputs
+        width: 75%
+        height: 100%
+        display: grid
+        grid-template-rows: repeat(2, 1fr)
+
+        input
+            width: 92%
+            color: #fff
+            margin: 0.5rem
+            padding: 0.75rem 1rem
+            font-size: 1.15rem
+            border: $border
+            border-radius: 8px
+            background: $background_2
+    
+    .header-button 
+        width: 25%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+
+        button
+            width: 115px
+            height: 115px
+
+            > span
+                transform: scale(3)
+
+.tasks
+    width: 100%
+    min-height: 10vh
+
+    .tasks-body
+        display: flex
+        margin-top: 2rem
+        flex-direction: column
+
+        .tasks-info
+            width: 100%
+            height: 15vh
+            position: relative
+            display: flex
+            align-items: center
+            justify-content: center
+
+            > h1 
+                color: #fff
+
+            &::before
+                content: ""
+                position: absolute
+                top: 2.5rem
+                left: 17rem
+                width: 64px
+                height: 3px
+                background: $color
+
+            &::after
+                content: ""
+                position: absolute
+                bottom: 2.5rem
+                left: 17rem
+                width: 64px
+                height: 3px
+                background: $color
+    
+    .tasks-cards
+        width: 93%
+        min-height: 10vh
+        margin: 0 auto
+        display: flex
+        flex-direction: column
+
+        .task-card
+            cursor: pointer
+            position: relative
+            margin-bottom: 2rem
+            width: 100%
+            min-height: 10vh
+
+            .task-info
+                width: 100%
+                min-height: 10vh
+                position: relative
+                // top: 0
+                // left: 0
+                z-index: 1
+                display: flex
+                background-color: $background_2
+                border: $border
+                border-radius: 8px
+
+                .task-text
+                    width: 79%
+                    min-height: 6vh
+                    float: left
+                    display: flex
+                    padding: 1rem
+                    flex-direction: column
+                    justify-content: center
+
+                    > h1
+                        margin-bottom: 0.5rem
+
+                .task-button
+                    width: 15%
+                    height: 10vh
+                    float: right
+                    display: flex
+                    align-items: center
+                    justify-content: center
+
+                    button
+                        padding: 0.5rem
+                        position: absolute
+                        z-index: 2
+
+                        > span
+                            font-size: 2rem
+                            transform: rotateZ(45deg)
+            
+            .task-action
+                display: none
+                float: right
+                margin-top: 1rem
+
+                button
+                    width: 2vw
+                    height: 4vh
+                    padding: 1.25rem
+                    margin-left: 1rem
+                    background-color: $background_2
+
+                    > img
+                        transform: scale(1.2)
+            
+            @keyframes taskActionView
+                from
+                    margin-top: -3rem
+                to
+                    margin-top: 1rem
+
+            @keyframes taskActionClose
+                from
+                    margin-top: 1rem
+                to
+                    margin-top: -3rem

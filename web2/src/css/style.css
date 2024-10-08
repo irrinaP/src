@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+h1 {
+  color: #F0E3CA;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  color: #F0E3CA;
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  color: #FF8303;
+  cursor: pointer;
+  background-color: #1b1a17;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: none;
+  border: 2px solid #FF8303;
+  border-radius: 8px;
+}
+
+html {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #1b1a17;
+  overflow-x: hidden;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.wrapper-body {
+  width: 35%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  height: 12.5vh;
+  padding-top: 2rem;
+}
+.header .header-body {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header .header-inputs {
+  width: 75%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+  grid-template-rows: repeat(2, 1fr);
+}
+.header .header-inputs input {
+  width: 92%;
+  color: #fff;
+  margin: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1.15rem;
+  border: 2px solid #FF8303;
+  border-radius: 8px;
+  background: #1F1E1B;
+}
+.header .header-button {
+  width: 25%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.header .header-button button {
+  width: 115px;
+  height: 115px;
+}
+.header .header-button button > span {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+.tasks {
+  width: 100%;
+  min-height: 10vh;
+}
+.tasks .tasks-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.tasks .tasks-body .tasks-info {
+  width: 100%;
+  height: 15vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tasks .tasks-body .tasks-info > h1 {
+  color: #fff;
+}
+.tasks .tasks-body .tasks-info::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  left: 17rem;
+  width: 64px;
+  height: 3px;
+  background: #FF8303;
+}
+.tasks .tasks-body .tasks-info::after {
+  content: "";
+  position: absolute;
+  bottom: 2.5rem;
+  left: 17rem;
+  width: 64px;
+  height: 3px;
+  background: #FF8303;
+}
+.tasks .tasks-cards {
+  width: 93%;
+  min-height: 10vh;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.tasks .tasks-cards .task-card {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+  min-height: 10vh;
+}
+.tasks .tasks-cards .task-card .task-info {
+  width: 100%;
+  min-height: 10vh;
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #1F1E1B;
+  border: 2px solid #FF8303;
+  border-radius: 8px;
+}
+.tasks .tasks-cards .task-card .task-info .task-text {
+  width: 79%;
+  min-height: 6vh;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tasks .tasks-cards .task-card .task-info .task-text > h1 {
+  margin-bottom: 0.5rem;
+}
+.tasks .tasks-cards .task-card .task-info .task-button {
+  width: 15%;
+  height: 10vh;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tasks .tasks-cards .task-card .task-info .task-button button {
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 2;
+}
+.tasks .tasks-cards .task-card .task-info .task-button button > span {
+  font-size: 2rem;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.tasks .tasks-cards .task-card .task-action {
+  display: none;
+  float: right;
+  margin-top: 1rem;
+}
+.tasks .tasks-cards .task-card .task-action button {
+  width: 2vw;
+  height: 4vh;
+  padding: 1.25rem;
+  margin-left: 1rem;
+  background-color: #1F1E1B;
+}
+.tasks .tasks-cards .task-card .task-action button > img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+@-webkit-keyframes taskActionView {
+  from {
+    margin-top: -3rem;
+  }
+  to {
+    margin-top: 1rem;
+  }
+}
+@keyframes taskActionView {
+  from {
+    margin-top: -3rem;
+  }
+  to {
+    margin-top: 1rem;
+  }
+}
+@-webkit-keyframes taskActionClose {
+  from {
+    margin-top: 1rem;
+  }
+  to {
+    margin-top: -3rem;
+  }
+}
+@keyframes taskActionClose {
+  from {
+    margin-top: 1rem;
+  }
+  to {
+    margin-top: -3rem;
+  }
+}
