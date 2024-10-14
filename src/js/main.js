@@ -2,6 +2,7 @@ function modal(action) {
     let modalWindow = document.getElementsByClassName("modal")[0];
     let modalShare = modalWindow.getElementsByClassName("modal-share")[0];
     let modalEdit = modalWindow.getElementsByClassName("modal-edit")[0];
+    let modalDelete = modalWindow.getElementsByClassName("modal-delete")[0];
 
     modalWindow.style.display = "block";
     modalWindow.style.animation = "modalView 1s 1";
@@ -13,6 +14,10 @@ function modal(action) {
     
         case "edit":
             modalEdit.style.display = "flex";
+            break;
+
+        case "delete":
+            modalDelete.style.display = "flex";
             break;
     }
 }
@@ -46,14 +51,14 @@ function newTask(inputTitle, inputAbout) {
     taskTextH1.innerText = inputTitle;
     taskTextP.innerText = inputAbout;
     taskButton.classList.add("task-button");
-    taskButton.setAttribute("onclick", "deleteTask(" + numberTask + ")");
+    taskButton.setAttribute("onclick", "viewDeleteTask(" + numberTask + ")");
     taskButtonAdd.innerHTML = "<span class='material-symbols-outlined'>add</span>";
 
     taskAction.classList.add("task-action");
-    taskActionShare.setAttribute("onclick", "share()");
+    taskActionShare.setAttribute("onclick", "share(" + ++numberTask + ")");
     taskActionShareImg.setAttribute("src", "icons/share.png");
     taskActionInfoImg.setAttribute("src", "icons/i.png");
-    taskActionEdit.setAttribute("onclick", "editView(" + ++numberTask + ")");
+    taskActionEdit.setAttribute("onclick", "editView(" + numberTask + ")");
     taskActionEditImg.setAttribute("src", "icons/edit.png");
 
     taskText.append(taskTextH1);
@@ -72,11 +77,21 @@ function newTask(inputTitle, inputAbout) {
     tasksCards.append(taskCard);
 }
 
+function viewDeleteTask(numberTask) {
+    modal("delete");
+
+    let modalDelete = document.getElementsByClassName("modal-delete")[0];
+    let btnDelete = modalDelete.getElementsByClassName("modal-buttons")[0].getElementsByTagName("button")[0];
+
+    btnDelete.setAttribute("onclick", "deleteTask(" + numberTask + ")");
+}
+
 function deleteTask(numberTask) {
     let task = document.getElementById(numberTask);
     
+    localStorage.removeItem(++numberTask);
     task.remove();
-    localStorage.removeItem(numberTask++);
+    cancelDelete();
 }
 
 function viewAction(numberTask) {
@@ -100,30 +115,54 @@ function viewAction(numberTask) {
 
 let isShare = false;
 let isEdit = false;
-function share() {
+function share(numberTask) {
     modal("share");
+
+    let modalShare = document.getElementsByClassName("modal-share")[0];
+    let btnShareCopy = modalShare.getElementsByClassName("share-section")[0].getElementsByTagName("button")[0];
+
+    btnShareCopy.setAttribute("id", numberTask);
+    modalShare.style.animation = "modalShareView 1s 1";
     isShare = true;
+    
 }
 
 function editView(numberTask) {
     modal("edit");
 
+    let modalWindow = document.getElementsByClassName("modal-edit")[0];
     let titleText = JSON.parse(localStorage.getItem(numberTask)).title;
     let aboutText = JSON.parse(localStorage.getItem(numberTask)).about;
-    let btnEdit = document.getElementsByClassName("modal-edit")[0].getElementsByClassName("modal-buttons")[0].getElementsByTagName("button")[1];
+    let btnEdit = modalWindow.getElementsByClassName("modal-buttons")[0].getElementsByTagName("button")[1];
 
-    document.getElementsByClassName("modal-edit")[0].getElementsByTagName("input")[0].setAttribute("placeholder", titleText);
-    document.getElementsByClassName("modal-edit")[0].getElementsByTagName("textarea")[0].setAttribute("placeholder", aboutText);
+
+    modalWindow.style.animation = "modalEditView 1s 1";
+    modalWindow.getElementsByTagName("input")[0].setAttribute("placeholder", titleText);
+    modalWindow.getElementsByTagName("textarea")[0].setAttribute("placeholder", aboutText);
     btnEdit.setAttribute("id", numberTask);
 }
 
-function cancel() {
+function cancelDelete() {
+    let modalWindow = document.getElementsByClassName("modal")[0];
+    let modalDelete = modalWindow.getElementsByClassName("modal-delete")[0];
+
+    modalWindow.style.animation = "modalClose 1s 1";
+    setTimeout(() => {
+        modalWindow.style.display = "none";
+        modalDelete.style.display = "none";
+    }, 900);
+}
+
+function cancelEdit() {
     let modalWindow = document.getElementsByClassName("modal")[0];
     let modalEdit = modalWindow.getElementsByClassName("modal-edit")[0];
 
-    modalWindow.style.display = "none";
-    modalEdit.style.display = "none";
-
+    modalWindow.style.animation = "modalClose 1s 1";
+    modalEdit.style.animation = "modalEditClose 1s 1";
+    setTimeout(() => {
+        modalWindow.style.display = "none";
+        modalEdit.style.display = "none";
+    }, 900);
 }
 
 window.onload = () => {
@@ -135,6 +174,7 @@ window.onload = () => {
     let modalShare = modal.getElementsByClassName("modal-share")[0];
     let modalEdit = modal.getElementsByClassName("modal-edit")[0];
     let btnEdit = modalEdit.getElementsByClassName("modal-buttons")[0].getElementsByTagName("button")[1];
+    let btnShareCopy = modalShare.getElementsByClassName("share-section")[0].getElementsByTagName("button")[0];
 
     btnAdd.onclick = () => {
         let header = document.getElementsByClassName("header")[0];
@@ -178,7 +218,14 @@ window.onload = () => {
         inputAbout.value = "";
 
         isEdit = true;
-        cancel();
+        cancelEdit();
+    }
+
+    btnShareCopy.onclick = () => {
+        let numberTask = btnShareCopy.getAttribute("id");
+        let copyText = JSON.parse(localStorage.getItem(numberTask))['title'] + "\n" + JSON.parse(localStorage.getItem(numberTask))['about'];
+
+        navigator.clipboard.writeText(copyText);
     }
 
     modal.onclick = (e) => {
@@ -187,8 +234,12 @@ window.onload = () => {
                 console.log(e.target.getAttribute("class"));
                 
                 isShare = false;
-                modalShare.style.display = "none";
-                modal.style.display = "none";
+                modal.style.animation = "modalClose 1s 1";
+                modalShare.style.animation = "modalShareClose 1s 1";
+                setTimeout(() => {
+                    modalShare.style.display = "none";
+                    modal.style.display = "none";
+                }, 900);
             }
         }
 

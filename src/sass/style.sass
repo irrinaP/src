@@ -57,6 +57,182 @@ body
     background-color: $background_1
     overflow-x: hidden
 
+@media screen and (width > 1600px)
+    .modal
+        .modal-body
+            width: 35%
+        
+            .modal-share
+                width: 65%
+
+            .modal-edit
+                width: 65%
+                height: 45%
+
+                button
+                    font-size: 1.35rem
+    
+            .modal-delete
+                width: 65%
+
+    .wrapper-body
+            width: 35%
+
+            .header
+                input
+                    font-size: 1.15rem
+            
+            .tasks
+                .task-text
+                    width: 79%
+
+                    h1
+                        font-size: 2rem
+
+@media screen and (width > 1200px) and (width < 1600px)
+    .modal
+        .modal-body
+            width: 35%
+
+            .modal-share
+                width: 75%
+
+            .modal-edit
+                width: 75%
+                height: 45%
+
+                button
+                    font-size: 1.35rem
+
+            .modal-delete
+                width: 75%
+    
+    .wrapper
+        .wrapper-body
+            width: 40%
+
+            .header
+                input
+                    font-size: 1.05rem
+            
+            .tasks
+                .task-text
+                    width: 79%
+
+                    h1
+                        font-size: 1.75rem
+
+@media screen and (width > 850px) and (width < 1200px)
+    .modal
+        .modal-body
+            width: 35%
+
+            .modal-share
+                width: 100%
+
+            .modal-edit
+                width: 100%
+                height: 47.5%
+
+                button
+                    font-size: 1.2rem
+
+            .modal-delete
+                width: 95%
+    
+    .wrapper
+        .wrapper-body
+            width: 60%
+
+            .header
+                input
+                    font-size: 1.05rem
+            
+            .tasks
+                .task-text
+                    width: 79%
+
+                    h1
+                        font-size: 1.75rem
+
+@media screen and (width > 650px) and (width < 850px)
+    .modal
+        .modal-body
+            width: 53.5%
+
+            .modal-share
+                width: 100%
+
+            .modal-edit
+                width: 100%
+                height: 47.5%
+
+                button
+                    font-size: 1.2rem
+
+            .modal-delete
+                width: 95%
+    
+    .wrapper
+        .wrapper-body
+            width: 85%
+
+            .header
+                input
+                    font-size: 1.05rem
+            
+            .tasks
+                .task-text
+                    width: 79%
+
+                    h1
+                        font-size: 1.75rem
+
+@media screen and (width > 320px) and (width < 650px)
+    .modal
+        .modal-body
+            width: 80%
+
+            .modal-share
+                width: 100%
+
+            .modal-edit
+                width: 100%
+                height: 47.5%
+
+                button
+                    font-size: 1.2rem
+
+            .modal-delete
+                width: 100%
+    
+    .wrapper
+        .wrapper-body
+            width: 90%
+
+            .header
+                height: 8.5vh
+
+                .header-inputs
+                    width: 79%
+
+                    input
+                        width: 88%
+                        padding: 0.5rem 1rem
+                        font-size: 0.75rem
+
+                .header-buttons
+                    button
+                        > span
+                            transform: scale(2)
+            
+            .tasks
+                .task-text
+                    width: 73%
+
+                    h1
+                        font-size: 1.35rem
+
 .modal 
     display: none
     position: fixed
@@ -73,16 +249,21 @@ body
         to
             opacity: 100%
 
+    @keyframes modalClose
+        from
+            opacity: 100%
+        to
+            opacity: 0%
+
     .modal-body
-        width: 35%
         height: 100%
         margin: 0 auto
         position: relative
         display: flex
         justify-content: center
+        align-items: center
 
         .modal-share
-            width: 65%
             height: 8%
             padding: 0rem 1.5rem
             position: absolute
@@ -93,7 +274,6 @@ body
             border-top-right-radius: 8px
             display: none
             grid-template-columns: repeat(5, 1fr)
-            animation: modalShareView 1s 1
 
             @keyframes modalShareView
                 from
@@ -101,6 +281,12 @@ body
                 to
                     bottom: 0rem
 
+            @keyframes modalShareClose
+                from
+                    bottom: 0rem
+                to
+                    bottom: -5rem
+            
             .share-section
                 display: flex
                 align-items: center
@@ -116,8 +302,6 @@ body
                 
         .modal-edit
             display: none
-            width: 65%
-            height: 45%
             padding: 1.5rem
             position: absolute
             bottom: 0
@@ -125,13 +309,18 @@ body
             background-color: $background_1
             border-top-left-radius: 8px
             border-top-right-radius: 8px
-            animation: modalEditView 1s 1
 
             @keyframes modalEditView
                 from
                     bottom: -20rem
                 to 
                     bottom: 0rem
+
+            @keyframes modalEditClose
+                from
+                    bottom: 0rem
+                to 
+                    bottom: -20rem
 
             input, textarea, button
                 border: $border_2
@@ -145,17 +334,48 @@ body
                 justify-content: center
 
                 button
-                    font-size: 1.35rem
-                    margin: 0.5rem
+                    margin: 0.5rem 0.5rem 0rem
                     padding: 0.5rem 1.5rem
                     background-color: $background_3
+
+        .modal-delete
+            display: none
+            height: 25%
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            background-color: $background_1
+            border-top: 5px solid $color_1
+            border-radius: 4px
+
+            p
+                color: #fff
+                font-size: 1.75rem
+                margin-bottom: 2rem
+                
+            .modal-buttons
+                width: 60%
+                display: flex
+                justify-content: space-around
+
+                button
+                    color: $color_3
+                    padding: 0.5rem 2rem
+                    font-size: 1.25rem
+                    font-family: "Roboto", sans-serif
+                    background-color: $background_2
+
+                button:nth-child(1)
+                    border: 1px solid $color_2
+
+                button:nth-child(2)
+                    border: 1px solid $color_1
     
 .wrapper 
     width: 100vw
     min-height: 100vh
 
     .wrapper-body 
-        width: 35%
         min-height: 100vh
         margin: 0 auto
         
@@ -170,24 +390,28 @@ body
             display: flex
 
         .header-inputs
-            width: 75%
+            width: 79%
             height: 100%
             display: grid
+            align-items: center
             grid-template-rows: repeat(2, 1fr)
 
             input
-                margin: 0.5rem
+                height: 33%
+
+            input::nth-child(1)
+                margin-top: 0.5rem
         
         .header-buttons
-            width: 25%
+            width: 21%
             height: 100%
             display: flex
             align-items: center
             justify-content: center
 
             button
-                width: 115px
-                height: 115px
+                width: 86%
+                height: 91%
 
                 > span
                     transform: scale(3)
@@ -202,8 +426,9 @@ body
             flex-direction: column
 
             .tasks-info
-                width: 100%
+                width: 40%
                 height: 15vh
+                margin: 0 auto
                 position: relative
                 display: flex
                 align-items: center
@@ -215,8 +440,7 @@ body
                 &::before
                     content: ""
                     position: absolute
-                    top: 2.5rem
-                    left: 17rem
+                    top: 2rem
                     width: 64px
                     height: 3px
                     background: $color_1
@@ -224,16 +448,14 @@ body
                 &::after
                     content: ""
                     position: absolute
-                    bottom: 2.5rem
-                    left: 17rem
+                    bottom: 2rem
                     width: 64px
                     height: 3px
                     background: $color_1
         
         .tasks-cards
-            width: 93%
+            width: 98.5%
             min-height: 10vh
-            margin: 0 auto
             display: none
             flex-direction: column
 
@@ -255,7 +477,6 @@ body
                     border-radius: 8px
 
                     .task-text
-                        width: 79%
                         min-height: 6vh
                         float: left
                         display: flex

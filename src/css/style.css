@@ -60,6 +60,168 @@ body {
   overflow-x: hidden;
 }
 
+@media screen and (width > 1600px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 65%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 65%;
+    height: 45%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.35rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 65%;
+  }
+  .wrapper-body {
+    width: 35%;
+  }
+  .wrapper-body .header input {
+    font-size: 1.15rem;
+  }
+  .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper-body .tasks .task-text h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (width > 1200px) and (width < 1600px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 75%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 75%;
+    height: 45%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.35rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 75%;
+  }
+  .wrapper .wrapper-body {
+    width: 40%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 850px) and (width < 1200px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 95%;
+  }
+  .wrapper .wrapper-body {
+    width: 60%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 650px) and (width < 850px) {
+  .modal .modal-body {
+    width: 53.5%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 95%;
+  }
+  .wrapper .wrapper-body {
+    width: 85%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 320px) and (width < 650px) {
+  .modal .modal-body {
+    width: 80%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 100%;
+  }
+  .wrapper .wrapper-body {
+    width: 90%;
+  }
+  .wrapper .wrapper-body .header {
+    height: 8.5vh;
+  }
+  .wrapper .wrapper-body .header .header-inputs {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .header .header-inputs input {
+    width: 88%;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  .wrapper .wrapper-body .header .header-buttons button > span {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 73%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.35rem;
+  }
+}
 .modal {
   display: none;
   position: fixed;
@@ -86,8 +248,23 @@ body {
     opacity: 100%;
   }
 }
+@-webkit-keyframes modalClose {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+@keyframes modalClose {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
 .modal .modal-body {
-  width: 35%;
   height: 100%;
   margin: 0 auto;
   position: relative;
@@ -97,9 +274,11 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .modal .modal-body .modal-share {
-  width: 65%;
   height: 8%;
   padding: 0rem 1.5rem;
   position: absolute;
@@ -111,8 +290,6 @@ body {
   display: none;
   -ms-grid-columns: (1fr)[5];
   grid-template-columns: repeat(5, 1fr);
-  -webkit-animation: modalShareView 1s 1;
-          animation: modalShareView 1s 1;
 }
 @-webkit-keyframes modalShareView {
   from {
@@ -128,6 +305,22 @@ body {
   }
   to {
     bottom: 0rem;
+  }
+}
+@-webkit-keyframes modalShareClose {
+  from {
+    bottom: 0rem;
+  }
+  to {
+    bottom: -5rem;
+  }
+}
+@keyframes modalShareClose {
+  from {
+    bottom: 0rem;
+  }
+  to {
+    bottom: -5rem;
   }
 }
 .modal .modal-body .modal-share .share-section {
@@ -151,8 +344,6 @@ body {
 }
 .modal .modal-body .modal-edit {
   display: none;
-  width: 65%;
-  height: 45%;
   padding: 1.5rem;
   position: absolute;
   bottom: 0;
@@ -163,8 +354,6 @@ body {
   background-color: #1b1a17;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  -webkit-animation: modalEditView 1s 1;
-          animation: modalEditView 1s 1;
 }
 @-webkit-keyframes modalEditView {
   from {
@@ -180,6 +369,22 @@ body {
   }
   to {
     bottom: 0rem;
+  }
+}
+@-webkit-keyframes modalEditClose {
+  from {
+    bottom: 0rem;
+  }
+  to {
+    bottom: -20rem;
+  }
+}
+@keyframes modalEditClose {
+  from {
+    bottom: 0rem;
+  }
+  to {
+    bottom: -20rem;
   }
 }
 .modal .modal-body .modal-edit input, .modal .modal-body .modal-edit textarea, .modal .modal-body .modal-edit button {
@@ -200,10 +405,52 @@ body {
           justify-content: center;
 }
 .modal .modal-body .modal-edit .modal-buttons button {
-  font-size: 1.35rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0.5rem 0rem;
   padding: 0.5rem 1.5rem;
   background-color: #23221F;
+}
+.modal .modal-body .modal-delete {
+  display: none;
+  height: 25%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #1b1a17;
+  border-top: 5px solid #FF8303;
+  border-radius: 4px;
+}
+.modal .modal-body .modal-delete p {
+  color: #fff;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+.modal .modal-body .modal-delete .modal-buttons {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.modal .modal-body .modal-delete .modal-buttons button {
+  color: #D9D9D9;
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #1F1E1B;
+}
+.modal .modal-body .modal-delete .modal-buttons button:nth-child(1) {
+  border: 1px solid #A35709;
+}
+.modal .modal-body .modal-delete .modal-buttons button:nth-child(2) {
+  border: 1px solid #FF8303;
 }
 
 .wrapper {
@@ -211,7 +458,6 @@ body {
   min-height: 100vh;
 }
 .wrapper .wrapper-body {
-  width: 35%;
   min-height: 100vh;
   margin: 0 auto;
 }
@@ -228,18 +474,24 @@ body {
   display: flex;
 }
 .wrapper .header .header-inputs {
-  width: 75%;
+  width: 79%;
   height: 100%;
   display: -ms-grid;
   display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-grid-rows: (1fr)[2];
   grid-template-rows: repeat(2, 1fr);
 }
 .wrapper .header .header-inputs input {
-  margin: 0.5rem;
+  height: 33%;
+}
+.wrapper .header .header-inputs input::nth-child(1) {
+  margin-top: 0.5rem;
 }
 .wrapper .header .header-buttons {
-  width: 25%;
+  width: 21%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -252,8 +504,8 @@ body {
           justify-content: center;
 }
 .wrapper .header .header-buttons button {
-  width: 115px;
-  height: 115px;
+  width: 86%;
+  height: 91%;
 }
 .wrapper .header .header-buttons button > span {
   -webkit-transform: scale(3);
@@ -274,8 +526,9 @@ body {
           flex-direction: column;
 }
 .wrapper .tasks .tasks-body .tasks-info {
-  width: 100%;
+  width: 40%;
   height: 15vh;
+  margin: 0 auto;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -293,8 +546,7 @@ body {
 .wrapper .tasks .tasks-body .tasks-info::before {
   content: "";
   position: absolute;
-  top: 2.5rem;
-  left: 17rem;
+  top: 2rem;
   width: 64px;
   height: 3px;
   background: #FF8303;
@@ -302,16 +554,14 @@ body {
 .wrapper .tasks .tasks-body .tasks-info::after {
   content: "";
   position: absolute;
-  bottom: 2.5rem;
-  left: 17rem;
+  bottom: 2rem;
   width: 64px;
   height: 3px;
   background: #FF8303;
 }
 .wrapper .tasks .tasks-cards {
-  width: 93%;
+  width: 98.5%;
   min-height: 10vh;
-  margin: 0 auto;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -338,7 +588,6 @@ body {
   border-radius: 8px;
 }
 .wrapper .tasks .tasks-cards .task-card .task-info .task-text {
-  width: 79%;
   min-height: 6vh;
   float: left;
   display: -webkit-box;

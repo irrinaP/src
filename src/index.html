@@ -16,27 +16,27 @@
             <div class="modal-body">
                 <div class="modal-share">
                     <div class="share-section">
-                        <button>
+                        <button type="button">
                             <img src="icons/share_1.png" alt="">
                         </button>
                     </div>
                     <div class="share-section">
-                        <button>
+                        <button type="button">
                             <img src="icons/share_2.png" alt="">
                         </button>
                     </div>
                     <div class="share-section">
-                        <button>
+                        <button type="button">
                             <img src="icons/share_3.png" alt="">
                         </button>
                     </div>
                     <div class="share-section">
-                        <button>
+                        <button type="button">
                             <img src="icons/share_4.png" alt="">
                         </button>
                     </div>
                     <div class="share-section">
-                        <button>
+                        <button type="button">
                             <img src="icons/share_5.png" alt="">
                         </button>
                     </div>
@@ -45,8 +45,15 @@
                     <input type="text" placeholder="Mini input...">
                     <textarea placeholder="Max input..."></textarea>
                     <div class="modal-buttons">
-                        <button type="button" onclick="cancel()">Cancel</button>
+                        <button type="button" onclick="cancelEdit()">Cancel</button>
                         <button type="button">Save</button>
+                    </div>
+                </div>
+                <div class="modal-delete">
+                    <p>Delete this task?</p>
+                    <div class="modal-buttons">
+                        <button type="button">Yes</button>
+                        <button type="button" onclick="cancelDelete()">No</button>
                     </div>
                 </div>
             </div>
