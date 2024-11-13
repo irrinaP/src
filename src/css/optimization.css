@@ -1,0 +1,162 @@
+@media screen and (width > 1600px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 65%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 65%;
+    height: 45%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.35rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 65%;
+  }
+  .wrapper-body {
+    width: 35%;
+  }
+  .wrapper-body .header input {
+    font-size: 1.15rem;
+  }
+  .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper-body .tasks .task-text h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (width > 1200px) and (width < 1600px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 75%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 75%;
+    height: 45%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.35rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 75%;
+  }
+  .wrapper .wrapper-body {
+    width: 40%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 850px) and (width < 1200px) {
+  .modal .modal-body {
+    width: 35%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 95%;
+  }
+  .wrapper .wrapper-body {
+    width: 60%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 650px) and (width < 850px) {
+  .modal .modal-body {
+    width: 53.5%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 95%;
+  }
+  .wrapper .wrapper-body {
+    width: 85%;
+  }
+  .wrapper .wrapper-body .header input {
+    font-size: 1.05rem;
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (width > 320px) and (width < 650px) {
+  .modal .modal-body {
+    width: 80%;
+  }
+  .modal .modal-body .modal-share {
+    width: 100%;
+  }
+  .modal .modal-body .modal-edit {
+    width: 100%;
+    height: 47.5%;
+  }
+  .modal .modal-body .modal-edit button {
+    font-size: 1.2rem;
+  }
+  .modal .modal-body .modal-delete {
+    width: 100%;
+  }
+  .wrapper .wrapper-body {
+    width: 90%;
+  }
+  .wrapper .wrapper-body .header {
+    height: 8.5vh;
+  }
+  .wrapper .wrapper-body .header .header-inputs {
+    width: 79%;
+  }
+  .wrapper .wrapper-body .header .header-inputs input {
+    width: 88%;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  .wrapper .wrapper-body .header .header-buttons button > span {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  .wrapper .wrapper-body .tasks .task-text {
+    width: 73%;
+  }
+  .wrapper .wrapper-body .tasks .task-text h1 {
+    font-size: 1.35rem;
+  }
+}
